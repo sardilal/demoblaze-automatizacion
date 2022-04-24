@@ -6,6 +6,7 @@ import co.com.devco.tasks.Loguearse;
 import io.cucumber.java.es.Cuando;
 import io.cucumber.java.es.Dado;
 import io.cucumber.java.es.Entonces;
+import net.serenitybdd.screenplay.actions.Open;
 import net.serenitybdd.screenplay.ensure.Ensure;
 import net.serenitybdd.screenplay.questions.Text;
 
@@ -41,6 +42,7 @@ public class DemoblazeCarritoStepDefinitions {
     @Cuando("{string} agrega el {string} al carrito vacio")
     public void agregarObjetoSinLoguin(String actor, String producto) {
         theActorCalled(actor).attemptsTo(
+                Open.url("https://www.demoblaze.com/#"),
                 LimpiarCarrito.completamente(),
                 AgregarAlCarrito.elProducto(producto)
         );

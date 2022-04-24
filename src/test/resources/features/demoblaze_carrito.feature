@@ -9,13 +9,13 @@ Característica: Carrito de compras
     Cuando agrega el "Samsung galaxy s6" al carrito vacio
     Entonces debe ver como unico elemento el "Samsung galaxy s6"
 
-  Esquema del escenario: Agregar <Objeto> al carrito vacio
-    Cuando "Nicolas" agrega el <Objeto> al carrito vacio
-    Entonces debe ver como unico elemento el <Objeto>
+  Esquema del escenario: Agregar Objeto al carrito vacio
+    Cuando "Nicolas" agrega el "<Objeto>" al carrito vacio
+    Entonces debe ver como unico elemento el "<Objeto>"
     Ejemplos:
-      | Objeto              |
-      | "Samsung galaxy s6" |
-      | "Nexus 6"           |
+      |Objeto|
+      |Samsung galaxy s6|
+      |Nexus 6          |
 
   Escenario: Eliminar Samsung galaxy s6 del carrito teniendo otro elemento
     Dado "Nicolas" agrega "Samsung galaxy s6" y "Nexus 6" al carrito vacio
