@@ -18,14 +18,14 @@ public class DemoblazeCarritoStepDefinitions {
     @Dado("que {string} se loguea como {string}")
     public void loguin(String actor, String rol) {
         theActorCalled(actor).attemptsTo(
-                Loguearse.como(rol),
-                LimpiarCarrito.completamente()
+                Loguearse.como(rol)
         );
     }
 
     @Cuando("agrega el {string} al carrito vacio")
     public void agregarObjetoAlCarrito(String producto) {
         theActorInTheSpotlight().attemptsTo(
+                LimpiarCarrito.completamente(),
                 AgregarAlCarrito.elProducto(producto)
         );
     }
@@ -37,4 +37,5 @@ public class DemoblazeCarritoStepDefinitions {
         );
 
     }
+
 }
