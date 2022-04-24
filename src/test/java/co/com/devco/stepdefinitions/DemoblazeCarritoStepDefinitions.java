@@ -37,5 +37,13 @@ public class DemoblazeCarritoStepDefinitions {
         );
 
     }
+//Empiezo a agregar steps para el segundo escenario
+    @Cuando("{string} agrega el {string} al carrito vacio")
+    public void agregarObjetoSinLoguin(String actor, String producto) {
+        theActorCalled(actor).attemptsTo(
+                LimpiarCarrito.completamente(),
+                AgregarAlCarrito.elProducto(producto)
+        );
+    }
 
 }
