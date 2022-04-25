@@ -1,9 +1,6 @@
 package co.com.devco.stepdefinitions;
 
-import co.com.devco.tasks.AgregarAlCarrito;
-import co.com.devco.tasks.BorrarDelCarrito;
-import co.com.devco.tasks.LimpiarCarrito;
-import co.com.devco.tasks.Loguearse;
+import co.com.devco.tasks.*;
 import io.cucumber.java.es.Cuando;
 import io.cucumber.java.es.Dado;
 import io.cucumber.java.es.Entonces;
@@ -64,6 +61,14 @@ public class DemoblazeCarritoStepDefinitions {
     public void eliminarObjetoCarrito(String producto) {
         theActorInTheSpotlight().attemptsTo(
                 BorrarDelCarrito.elProducto(producto)
+        );
+    }
+
+    @Cuando("{string} agrega {int} {string} al carrito")
+    public void agregarObjetoVecesCarrito(String actor, int veces, String producto) {
+        theActorCalled(actor).attemptsTo(
+                Open.url("https://www.demoblaze.com/#"),
+                AgregarAlCarritoVariasVeces.elProductoNVeces(producto, veces)
         );
     }
 
