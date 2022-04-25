@@ -20,8 +20,8 @@ Característica: Carrito de compras
   Escenario: Eliminar Samsung galaxy s6 del carrito teniendo otro elemento
     Dado "Nicolas" agrega "Samsung galaxy s6" y "Nexus 6" al carrito vacio
     Cuando elimina "Samsung galaxy s6"
-    Entonces debe ver como único elemento el "Nexus 6"
+    Entonces debe ver como unico elemento el "Nexus 6"
 
   Escenario: Agregar 3 Samsung galaxy s6 al carrito
-    Cuando  "Luci" agrega "3" "Samsung galaxy s6" al carrito
-    Entonces debe ver "3" elementos de "Samsung galaxy s6"
+    Cuando  "Luci" agrega 3 "Samsung galaxy s6" al carrito
+    Entonces debe ver 3 elementos de "Samsung galaxy s6"

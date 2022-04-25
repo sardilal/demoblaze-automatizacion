@@ -1,16 +1,19 @@
 package co.com.devco.stepdefinitions;
 
 import co.com.devco.tasks.AgregarAlCarrito;
+import co.com.devco.tasks.BorrarDelCarrito;
 import co.com.devco.tasks.LimpiarCarrito;
 import co.com.devco.tasks.Loguearse;
 import io.cucumber.java.es.Cuando;
 import io.cucumber.java.es.Dado;
 import io.cucumber.java.es.Entonces;
+import net.serenitybdd.screenplay.actions.Click;
 import net.serenitybdd.screenplay.actions.Open;
 import net.serenitybdd.screenplay.ensure.Ensure;
 import net.serenitybdd.screenplay.questions.Text;
 
 import static co.com.devco.userinterfaces.DemoblazeCarritoPage.*;
+import static co.com.devco.userinterfaces.DemoblazeIndexPage.LINK_HOME;
 import static net.serenitybdd.screenplay.actors.OnStage.theActorCalled;
 import static net.serenitybdd.screenplay.actors.OnStage.theActorInTheSpotlight;
 
@@ -45,6 +48,22 @@ public class DemoblazeCarritoStepDefinitions {
                 Open.url("https://www.demoblaze.com/#"),
                 LimpiarCarrito.completamente(),
                 AgregarAlCarrito.elProducto(producto)
+        );
+    }
+    @Dado("{string} agrega {string} y {string} al carrito vacio")
+    public void agregarObjetosCarritoVacio(String actor, String producto1, String producto2) {
+        theActorCalled(actor).attemptsTo(
+                Open.url("https://www.demoblaze.com/#"),
+                LimpiarCarrito.completamente(),
+                AgregarAlCarrito.elProducto(producto1),
+                Click.on(LINK_HOME),
+                AgregarAlCarrito.elProducto(producto2)
+        );
+    }
+    @Cuando("elimina {string}")
+    public void eliminarObjetoCarrito(String producto) {
+        theActorInTheSpotlight().attemptsTo(
+                BorrarDelCarrito.elProducto(producto)
         );
     }
 
