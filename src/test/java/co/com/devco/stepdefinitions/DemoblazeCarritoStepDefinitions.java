@@ -72,4 +72,11 @@ public class DemoblazeCarritoStepDefinitions {
         );
     }
 
+    @Entonces("debe ver {int} elementos de {string}")
+    public void asegurarNumeroDeProductos(int numero, String producto) {
+        theActorInTheSpotlight().attemptsTo(
+                Ensure.that(PRODUCTOS_CARRITO_TIPO.of(producto)).values().hasSizeGreaterThanOrEqualTo(numero)
+        );
+    }
+
 }
