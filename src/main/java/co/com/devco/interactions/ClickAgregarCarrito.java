@@ -28,8 +28,10 @@ public class ClickAgregarCarrito implements Interaction {
     @Override
     public <T extends Actor> void performAs(T actor) {
         for (int i = 0; i < veces; i++){
-            actor.attemptsTo(Click.on(BOTON_AGREGAR_CARRITO));
-            WaitUntil.the(BOTON_AGREGAR_CARRITO, isVisible()).forNoMoreThan(Duration.ofSeconds(6));
+            actor.attemptsTo(
+                    Click.on(BOTON_AGREGAR_CARRITO),
+                    WaitUntil.the(BOTON_AGREGAR_CARRITO, isVisible()).forNoMoreThan(Duration.ofSeconds(6))
+            );
         }
     }
 }

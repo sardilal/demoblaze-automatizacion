@@ -11,7 +11,11 @@ import net.serenitybdd.screenplay.Actor;
 import net.serenitybdd.screenplay.Performable;
 import net.serenitybdd.screenplay.Task;
 import net.serenitybdd.screenplay.actions.Click;
+import net.serenitybdd.screenplay.actions.Hit;
+import net.serenitybdd.screenplay.actions.Switch;
 import net.serenitybdd.screenplay.waits.WaitUntil;
+import org.openqa.selenium.Alert;
+import org.openqa.selenium.Keys;
 
 import java.time.Duration;
 
@@ -39,6 +43,7 @@ public class AgregarAlCarritoVariasVeces implements Task {
         actor.attemptsTo(
                 Click.on(LINK_PRODUCTO.of(producto)),
                 ClickAgregarCarrito.veces(veces),
+                //Switch.toAlert(),
                 WaitUntil.the(LINK_CARRITO, isVisible()).forNoMoreThan(Duration.ofSeconds(6)),
                 Click.on(LINK_CARRITO)
         );
